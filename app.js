@@ -1,133 +1,65 @@
-console.log("APP JS LOADED");
+function startReading(){
 
-const API_URL = "https://script.google.com/macros/s/AKfycbwX57x4KHz4jQzGU_LKrwF5dQiiAHm78Yo4IZc_oDPJu1lcG5zizS7QuWhDSObmgfeN/exec";
+document.getElementById("loading").style.display="block";
 
-function getZodiac(month, day) {
-    if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "Aries";
-    if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "Taurus";
-    if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "Gemini";
-    if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "Cancer";
-    if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "Leo";
-    if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "Virgo";
-    if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "Libra";
-    if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "Scorpio";
-    if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "Sagittarius";
-    if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) return "Capricorn";
-    if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "Aquarius";
-    return "Pisces";
-}
+document.getElementById("typing").innerHTML="Reading cosmic energy...";
 
-async function startReading() {
+setTimeout(()=>{
 
-    const name = document.getElementById("name").value || "Anonymous";
-    const dob = document.getElementById("dob").value;
-    const time = document.getElementById("time").value;
-    const place = document.getElementById("place").value;
+document.getElementById("typing").innerHTML="Finding your strengths...";
 
-    if (!dob || !time || !place) {
-        alert("Please fill all required fields.");
-        return;
-    }
+},2000);
 
-    const loading = document.getElementById("loading");
-    const result = document.getElementById("result");
+setTimeout(()=>{
 
-    loading.style.display = "block";
-    result.innerHTML = "";
+document.getElementById("typing").innerHTML="Preparing your inspiration...";
 
-    const birthDate = new Date(dob);
+},4000);
 
-    const zodiac = getZodiac(
-        birthDate.getMonth() + 1,
-        birthDate.getDate()
-    );
+setTimeout(()=>{
 
-    const readings = {
-        Aries: "Your courage will create new opportunities.",
-        Taurus: "Patience and consistency will bring success.",
-        Gemini: "Communication opens unexpected doors.",
-        Cancer: "Trust your emotions and intuition.",
-        Leo: "Recognition for your efforts is approaching.",
-        Virgo: "Attention to detail creates success.",
-        Libra: "Balance brings peace and progress.",
-        Scorpio: "Transformation leads to growth.",
-        Sagittarius: "Adventure and discovery await you.",
-        Capricorn: "Hard work is about to pay off.",
-        Aquarius: "Innovation opens unexpected paths.",
-        Pisces: "Trust your intuition and creativity."
-    };
+document.getElementById("loading").style.display="none";
 
-    const colors = [
-        "Blue",
-        "Purple",
-        "Gold",
-        "Silver",
-        "Green",
-        "Red",
-        "White",
-        "Orange"
-    ];
+let result=document.getElementById("result");
 
-    const days = [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-    ];
+result.style.display="block";
 
-    const luckyNumber = Math.floor(Math.random() * 9) + 1;
-    const luckyColor = colors[Math.floor(Math.random() * colors.length)];
-    const luckyDay = days[Math.floor(Math.random() * days.length)];
+result.innerHTML=`
 
-    try {
+<h2>✨ Cosmic Inspiration</h2>
 
-        await fetch(API_URL, {
-            method: "POST",
-            body: JSON.stringify({
-                name,
-                dob,
-                time,
-                place,
-                zodiac,
-                luckyNumber,
-                luckyColor,
-                luckyDay
-            })
-        });
+<p>
 
-    } catch (error) {
-        console.error("Google Sheet Error:", error);
-    }
+Your determination, kindness and optimism are among your greatest strengths.
 
-    setTimeout(() => {
+Keep believing in yourself because wonderful opportunities can arise through consistent effort.
 
-        loading.style.display = "none";
+</p>
 
-        result.innerHTML = `
-            <div style="text-align:center;">
-                <h2>🔮 ${zodiac}</h2>
+<p>
 
-                <p style="font-size:18px;">
-                    ${readings[zodiac]}
-                </p>
+💜 Lucky Color: Violet
 
-                <hr>
+</p>
 
-                <p><strong>🎲 Lucky Number:</strong> ${luckyNumber}</p>
+<p>
 
-                <p><strong>🎨 Lucky Color:</strong> ${luckyColor}</p>
+🔢 Lucky Number: 7
 
-                <p><strong>📅 Lucky Day:</strong> ${luckyDay}</p>
+</p>
 
-                <p>
-                    The stars suggest that the coming days hold
-                    new opportunities and personal growth.
-                </p>
-            </div>
-        `;
+<p>
 
-    }, 2000);
+🌟 Affirmation
+
+<br>
+
+"I welcome every new opportunity with confidence."
+
+</p>
+
+`;
+
+},6000);
+
 }
