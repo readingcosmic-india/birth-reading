@@ -21,6 +21,36 @@ async function startReading() {
     const time = document.getElementById("time").value;
     const place = document.getElementById("place").value;
 
+    const birthDate = new Date(dob);
+
+const zodiac = getZodiac(
+    birthDate.getMonth() + 1,
+    birthDate.getDate()
+);
+
+const response = await fetch("messages.json");
+const messages = await response.json();
+
+const reading =
+    messages[zodiac][
+        Math.floor(Math.random() * messages[zodiac].length)
+    ];
+
+const luckyNumber = Math.floor(Math.random() * 9) + 1;
+
+const colors = [
+    "Blue",
+    "Purple",
+    "Gold",
+    "Silver",
+    "Green",
+    "Red",
+    "White"
+];
+
+const luckyColor =
+    colors[Math.floor(Math.random() * colors.length)];
+
     if (!dob || !time || !place) {
         alert("Please fill all required fields.");
         return;
@@ -43,13 +73,20 @@ async function startReading() {
         setTimeout(() => {
             document.getElementById("loading").style.display = "none";
 
-            document.getElementById("result").innerHTML = `
-                <h2>Your Cosmic Reading</h2>
-                <p>The universe suggests that new opportunities are approaching.</p>
-                <p>Your determination and patience will guide your journey.</p>
-                <p><strong>Lucky Number:</strong> ${Math.floor(Math.random() * 9) + 1}</p>
-                <p><strong>Lucky Color:</strong> Blue</p>
-            `;
+document.getElementById("result").innerHTML = `
+    <h2>${zodiac.toUpperCase()}</h2>
+
+    <p>${reading}</p>
+
+    <p><strong>Lucky Number:</strong> ${luckyNumber}</p>
+
+    <p><strong>Lucky Color:</strong> ${luckyColor}</p>
+
+    <p>
+        The stars suggest that the coming days hold
+        new opportunities and personal growth.
+    </p>
+`;
         }, 2500);
 
     } catch (error) {
