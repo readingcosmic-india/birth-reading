@@ -1,61 +1,122 @@
 {
-"aries":[
-"You possess remarkable courage. Great opportunities are waiting for you.",
-"Your determination will help you achieve your dreams."
-],
-
-"taurus":[
-"Your patience is your greatest strength.",
-"Success grows steadily through your consistent efforts."
-],
-
-"gemini":[
-"Your curiosity opens new doors.",
-"Your communication inspires those around you."
-],
-
-"cancer":[
-"Your kindness creates lasting connections.",
-"Your compassion is one of your greatest gifts."
-],
-
-"leo":[
-"Your confidence helps you shine in every challenge.",
-"Your leadership inspires people around you."
-],
-
-"virgo":[
-"Your attention to detail will lead to success.",
-"Small consistent steps create extraordinary results."
-],
-
-"libra":[
-"You naturally bring balance wherever you go.",
-"Your positive energy attracts meaningful relationships."
-],
-
-"scorpio":[
-"Your inner strength helps you overcome obstacles.",
-"Transformation leads you toward new opportunities."
-],
-
-"sagittarius":[
-"Adventure and learning will bring exciting opportunities.",
-"Your optimism is your superpower."
-],
-
-"capricorn":[
-"Your discipline creates lasting achievements.",
-"Hard work will continue to reward you."
-],
-
-"aquarius":[
-"Your creativity makes you unique.",
-"Your innovative thinking will open unexpected doors."
-],
-
-"pisces":[
-"Your imagination and empathy are powerful strengths.",
-"Your dreams are worth pursuing with confidence."
-]
+  "aries": {
+    "readings": [
+      "You possess a remarkable, blazing courage that naturally sets you apart as a leader. Right now, the cosmic alignments suggest that major, transformative opportunities are silently aligning in your path. Your determination is your ultimate superpower—trust your instincts, take that bold leap, and watch your biggest aspirations turn into reality.",
+      "Your warrior spirit is designed to conquer obstacles that stop others in their tracks. The universe is urging you to channel your boundless energy into consistent action. Remember, your ultimate destiny is not built on luck, but on your relentless drive. Keep moving forward with absolute conviction."
+    ],
+    "affirmations": [
+      "I channel my inner strength to conquer every challenge with grace.",
+      "I am the architect of my destiny, and I walk forward with unstoppable confidence."
+    ]
+  },
+  "taurus": {
+    "readings": [
+      "Your grounded nature and deep patience are your absolute greatest strengths in a chaotic world. True success for you grows steadily, like a mighty oak tree, through your consistent, unshakeable efforts. Do not let temporary delays discourage you; the universe is simply fortifying your foundation for an abundant harvest.",
+      "You hold an incredible capacity to manifest stability and luxury out of thin air. Trust the deliberate pace of your journey. The cosmic energy around you is shifting to reward your loyalty and hard work with long-term security. Stay patient, stay focused, and keep building."
+    ],
+    "affirmations": [
+      "I trust the timing of my life and build my success on solid ground.",
+      "Abundance flows naturally into my life through my steady dedication."
+    ]
+  },
+  "gemini": {
+    "readings": [
+      "Your vibrant curiosity and sharp intellect are magical keys that open doors others cannot even see. Your brilliant communication skills possess the unique power to inspire, heal, and connect people. Embrace the changes happening around you right now, as they are steering you toward fascinating new horizons.",
+      "The universe thrives on your adaptability and quick wit. You are being called to share your unique perspectives with the world. Trust your versatile mind, discard any self-doubt, and allow your natural brilliance to guide you into unexpected, highly rewarding paths."
+    ],
+    "affirmations": [
+      "I express my truth with clarity, and my mind is open to boundless wisdom.",
+      "I welcome change with excitement and adapt gracefully to every new chapter."
+    ]
+  },
+  "cancer": {
+    "readings": [
+      "Your deep emotional intelligence and kindness create beautiful, lasting ripples in the lives of everyone you touch. Your immense compassion is not a weakness; it is an extraordinary gift from the cosmos. Protect your energy, but continue to trust your incredibly sharp intuition as it guides you toward profound emotional fulfillment.",
+      "You are a natural nurturer and a beacon of emotional strength. The stars indicate a powerful phase of personal growth where your intuition will lead you directly to hidden opportunities. Shield your heart from negativity and let your inner light shine bright."
+    ],
+    "affirmations": [
+      "My intuition is my infallible guide, and my compassionate heart is my power.",
+      "I create a sanctuary of peace and love within myself wherever I go."
+    ]
+  },
+  "leo": {
+    "readings": [
+      "Your radiant confidence and warm heart help you shine brilliantly through every single challenge life throws your way. Your innate leadership inspires those around you to step into their own greatness. Stand tall in your authentic power, stay generous, and allow your magnificent creative spark to light up the world.",
+      "You carry the majestic energy of the sun, meant to illuminate and inspire. The cosmos is positioning you for a major breakthrough where your talents will be fully recognized. Trust your internal royalty, keep your heart wide open, and lead with love."
+    ],
+    "affirmations": [
+      "I step boldly into my power and allow my unique light to shine effortlessly.",
+      "I am worthy of success, admiration, and all the happiness the universe offers."
+    ]
+  },
+  "virgo": {
+    "readings": [
+      "Your meticulous attention to detail and analytical mind are stepping stones directly toward ultimate mastery. Never forget that small, deliberate, daily actions compound into truly extraordinary results. Trust your deep inner wisdom, practice self-compassion, and know that you are executing your life purpose flawlessly.",
+      "Your capacity to organize chaos into perfection is a profound cosmic gift. The universe is aligning things behind the scenes to reward your quiet dedication. Quiet your inner critic, appreciate your magnificent progress, and let your brilliance unfold."
+    ],
+    "affirmations": [
+      "I celebrate my progress and trust that everything is unfolding perfectly.",
+      "My mind is clear, focused, and capable of achieving incredible milestones."
+    ]
+  },
+  "libra": {
+    "readings": [
+      "You naturally bring peace, beauty, and harmony wherever you go, acting as a soothing balm in a hectic world. Your beautiful, positive energy is currently acting as a cosmic magnet, attracting highly meaningful relationships and balanced opportunities. Trust your heart's compass to make the choices aligned with your highest good.",
+      "Your soul thrives on balance and aesthetic elegance. The stars indicate a beautiful alignment where past imbalances are resolving in your favor. Trust your judgment, honor your personal boundaries, and step gracefully into a period of peace."
+    ],
+    "affirmations": [
+      "I live in complete harmony with the universe and attract balanced connections.",
+      "I choose peace, step into clarity, and trust my inner compass implicitly."
+    ]
+  },
+  "scorpio": {
+    "readings": [
+      "Your profound inner strength and fierce intensity empower you to rise from any ashes, completely transformed and stronger than ever. The intense currents of life are currently guiding you directly toward unmatched spiritual and personal power. Lean into your deep intuition and shed what no longer serves your soul.",
+      "You hold an undeniable, magnetic power that commands respect. The universe is opening a portal of deep personal transformation for you. Embrace your vulnerability as a hidden weapon, uncover your latent talents, and step into your true power."
+    ],
+    "affirmations": [
+      "I embrace personal transformation and rise above every limitation cleanly.",
+      "My power lies in my depth, and I navigate life with absolute fearlessness."
+    ]
+  },
+  "sagittarius": {
+    "readings": [
+      "Your insatiable thirst for adventure and learning will continue to guide you toward wonderfully exciting, expansive milestones. Your sparkling optimism is your ultimate cosmic shield and superpower. Keep your arrows aimed high at the stars, stay true to your wild spirit, and watch the universe bend to match your luck.",
+      "You are a natural seeker of ultimate truths and boundless wisdom. The current cosmic shifts are clearing out old stagnation to make room for an exhilarating adventure or breakthrough. Trust your expansive vision and leap forward with an open heart."
+    ],
+    "affirmations": [
+      "I welcome the infinite adventures of life with an optimistic, joyous soul.",
+      "My potential is completely limitless, and I trust the magic of the universe."
+    ]
+  },
+  "capricorn": {
+    "readings": [
+      "Your unshakeable discipline and patient determination build legacy achievements that easily stand the test of time. While others look for shortcuts, your steady mountain-climbing approach guarantees your spot at the summit. Your hard work is accumulating a massive cosmic reward—stay focused and keep climbing.",
+      "You possess the rare endurance required to turn monumental dreams into tangible reality. The universe recognizes your silent sacrifices and is aligning foundational structures to support your long-term empire. Trust your strategy and take pride in your iron will."
+    ],
+    "affirmations": [
+      "I am fully capable of climbing any mountain and manifesting my empire.",
+      "My patience is a massive power, and my dedication guarantees my success."
+    ]
+  },
+  "aquarius": {
+    "readings": [
+      "Your visionary mind and unique individuality are exactly what the world needs to break free from old, tired limitations. Your innovative, outside-the-box thinking is on the verge of opening unexpected, highly profitable doors. Never dilute your eccentricity; your uniqueness is your genius.",
+      "You operate on a higher, progressive frequency that shapes the future. The cosmos is urging you to launch your original ideas without fearing judgment. Trust your progressive intuition, connect with like-minded collectives, and change the world your way."
+    ],
+    "affirmations": [
+      "I proudly celebrate my uniqueness and freely share my vision with the world.",
+      "I am an innovative force of nature, completely open to divine inspiration."
+    ]
+  },
+  "pisces": {
+    "readings": [
+      "Your breathtaking imagination and profound empathy are immensely powerful spiritual strengths that heal the world around you. Your dreams are not silly fantasies—they are divine blue-prints worth pursuing with absolute confidence. Dive deep into your creative expressions and watch the physical world rearrange for you.",
+      "You are deeply intertwined with the mystical currents of the cosmos. Your gentle, intuitive nature holds the answers to your complex questions. The universe is wrapping you in a blanket of divine protection right now—trust your dreams and create your magic."
+    ],
+    "affirmations": [
+      "My dreams are valuable blueprints, and I manifest them with gentle confidence.",
+      "I am safely anchored in my personal power while remaining beautifully open to magic."
+    ]
+  }
 }
