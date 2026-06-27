@@ -1,5 +1,5 @@
 // 1. MAKE SURE TO PUT YOUR ACTUAL WEB APP URL HERE:
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwds3TGqNjhVoJrwah6IfbQujMcg4vEcb5nvnLzGGR8p4K8nMzAq7ScVIHWt7xI6WIA/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycby4QzcWQR8MLT20rI0VxW1JWddO29ua3DZrqOhG_JcAHpoW2rwQlhqAioqXL_2Ubqdk/exec';
 
 let messages = {};
 
