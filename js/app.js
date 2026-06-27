@@ -52,28 +52,6 @@ async function startReading() {
         pisces: "♓ Pisces"
     };
 
-    const colors = [
-        "Blue",
-        "Purple",
-        "Gold",
-        "Silver",
-        "Green",
-        "Red",
-        "White",
-        "Orange",
-        "Pink"
-    ];
-
-    const luckyDays = [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-    ];
-
     const readings = {
         aries: [
             "Your courage will create new opportunities.",
@@ -137,64 +115,81 @@ async function startReading() {
         ]
     };
 
-    const reading =
-        readings[zodiac][
-            Math.floor(Math.random() * readings[zodiac].length)
-        ];
+    const colors = [
+        "Blue",
+        "Purple",
+        "Gold",
+        "Silver",
+        "Green",
+        "Red",
+        "White",
+        "Orange",
+        "Pink"
+    ];
 
+    const luckyDays = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    ];
+
+    const reading = readings[zodiac][Math.floor(Math.random() * readings[zodiac].length)];
     const luckyNumber = Math.floor(Math.random() * 9) + 1;
-    const luckyColor =
-        colors[Math.floor(Math.random() * colors.length)];
-    const luckyDay =
-        luckyDays[Math.floor(Math.random() * luckyDays.length)];
+    const luckyColor = colors[Math.floor(Math.random() * colors.length)];
+    const luckyDay = luckyDays[Math.floor(Math.random() * luckyDays.length)];
 
-    try {
+    // Save to Google Sheets in background
+    fetch(API_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name,
+            dob,
+            time,
+            place,
+            zodiac,
+            luckyNumber,
+            luckyColor,
+            luckyDay
+        })
+    }).catch(error => console.error(error));
 
-        await fetch(API_URL, {
-            method: "POST",
-            body: JSON.stringify({
-                name,
-                dob,
-                time,
-                place,
-                zodiac,
-                luckyNumber,
-                luckyColor,
-                luckyDay
-            })
-        });
+    // Show loading animation for 2 seconds
+    setTimeout(() => {
 
-        setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
 
-            document.getElementById("loading").style.display = "none";
+        document.getElementById("result").innerHTML = `
+            <div class="result-card">
 
-            document.getElementById("result").innerHTML = `
                 <h2>${zodiacNames[zodiac]}</h2>
 
                 <p>${reading}</p>
 
                 <hr>
 
-                <p><strong>Lucky Number:</strong> ${luckyNumber}</p>
+                <p><strong>🎲 Lucky Number:</strong> ${luckyNumber}</p>
 
-                <p><strong>Lucky Color:</strong> ${luckyColor}</p>
+                <p><strong>🎨 Lucky Color:</strong> ${luckyColor}</p>
 
-                <p><strong>Lucky Day:</strong> ${luckyDay}</p>
+                <p><strong>📅 Lucky Day:</strong> ${luckyDay}</p>
+
+                <br>
 
                 <p>
-                    The stars suggest that the coming days hold
+                    ✨ The stars suggest that the coming days hold
                     new opportunities and personal growth.
                 </p>
-            `;
 
-        }, 2500);
+            </div>
+        `;
 
-    } catch (error) {
-
-        document.getElementById("loading").style.display = "none";
-
-        alert("Unable to save data to Google Sheets.");
-
-        console.error(error);
-    }
+    }, 2000);
 }
