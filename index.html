@@ -2,19 +2,15 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cosmic Reading</title>
-
-    <link rel="icon" type="image/svg+xml" href="assets/crystal-ball-svgrepo-com.svg">
+    <title>Cosmic Reading Pro</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -26,12 +22,15 @@
         <div class="glass">
 
             <div class="logo">
-                <img src="assets/crystal-ball-svgrepo-com.svg" alt="Cosmic Reading Logo">
+                <img src="assets/crystal-ball-svgrepo-com.svg"
+                     class="logo"
+                     alt="Cosmic Reading Logo"
+                     width="100">
             </div>
 
-            <h1>🔮 Cosmic Reading</h1>
+            <h1>Cosmic Reading</h1>
 
-            <p class="subtitle">
+            <p>
                 Enter your birth details and receive your personalized cosmic reading.
             </p>
 
@@ -70,11 +69,13 @@
 
             <div id="loading" style="display:none;">
 
-                <h2>Connecting with the Universe...</h2>
+                <h2>🔮 Connecting with the Universe...</h2>
 
                 <div class="loader"></div>
 
-                <p id="typing"></p>
+                <p id="typing">
+                    Reading celestial energies...
+                </p>
 
             </div>
 
