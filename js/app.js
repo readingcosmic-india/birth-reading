@@ -147,6 +147,7 @@ async function startReading() {
     const luckyDay = luckyDays[Math.floor(Math.random() * luckyDays.length)];
 
     // Save to Google Sheets in background
+    console.log("STEP 4");
     fetch(API_URL, {
         method: "POST",
         mode: "no-cors",
@@ -166,10 +167,11 @@ async function startReading() {
     }).catch(error => console.error(error));
 
     // Show loading animation for 2 seconds
+    console.log("STEP 5");
     setTimeout(() => {
 
         document.getElementById("loading").style.display = "none";
-
+        console.log("STEP 6");
         document.getElementById("result").innerHTML = `
             <div class="result-card">
 
