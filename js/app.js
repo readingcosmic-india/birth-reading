@@ -1,3 +1,5 @@
+console.log("APP JS LOADED");
+
 function getZodiac(month, day) {
     if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "aries";
     if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "taurus";
