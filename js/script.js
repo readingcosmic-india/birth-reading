@@ -1,19 +1,12 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbjoT6ckzNzc-Cu7MFjbVD0M-3e9rPfmJsPyHUjlytnOOmE5STjUMVQs1S3vRXpZTZd/exec';
+// 1. PASTE YOUR BRAND NEW DEPLOYMENT URL HERE:
+const scriptURL = 'PASTE_YOUR_NEW_WEB_APP_URL_HERE';
+
 let messages = {};
+fetch('messages.json').then(r => r.json()).then(d => messages = d);
 
-// Load messages
-fetch('messages.json')
-  .then(r => r.json())
-  .then(d => messages = d)
-  .catch(err => console.error("Error loading messages.json:", err));
-
-// Zodiac calculation function
 function getZodiacSign(dobString) {
-  let x = new Date(dobString),
-      m = x.getMonth() + 1,
-      day = x.getDate();
+  let x = new Date(dobString), m = x.getMonth() + 1, day = x.getDate();
   if (isNaN(x.getTime())) return ''; 
-
   if ((m == 3 && day >= 21) || (m == 4 && day <= 19)) return 'aries';
   if ((m == 4 && day >= 20) || (m == 5 && day <= 20)) return 'taurus';
   if ((m == 5 && day >= 21) || (m == 6 && day <= 20)) return 'gemini';
@@ -28,7 +21,6 @@ function getZodiacSign(dobString) {
   return 'pisces';
 }
 
-// This function matches the one called by your HTML form submission
 function startReading() {
   const nameEl = document.getElementById('name');
   const dobEl = document.getElementById('dob');
@@ -48,34 +40,29 @@ function startReading() {
     return;
   }
 
-  // 1. Start the visual animations
   result.style.display = "none";
   loading.style.display = "block";
   typing.innerHTML = "Reading cosmic energy...";
 
-  setTimeout(() => {
-    typing.innerHTML = "Finding your strengths...";
-  }, 2000);
+  setTimeout(() => { typing.innerHTML = "Finding your strengths..."; }, 2000);
+  setTimeout(() => { typing.innerHTML = "Preparing your inspiration..."; }, 4000);
 
-  setTimeout(() => {
-    typing.innerHTML = "Preparing your inspiration...";
-  }, 4000);
-
-  // 2. Calculate sign and fetch local message text
   let s = getZodiacSign(dob);
   let arr = messages[s] || ['Keep believing in yourself.'];
   let msg = arr[Math.floor(Math.random() * arr.length)];
 
-  // 3. Send data to Google Sheet using the clean text/plain content-type bypass
+  // UPDATED FETCH WITH CORS BYPASS
   fetch(scriptURL, {
     method: 'POST',
+    mode: 'no-cors', // Tells GitHub Pages to shoot the data out without blocking it
     headers: {
-      'Content-Type': 'text/plain;charset=utf-8'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({ name, dob, time, place })
-  }).catch(err => console.error("Sheets sync error:", err));
+  })
+  .then(() => console.log("Data dispatched successfully."))
+  .catch(err => console.error("Network error:", err));
 
-  // 4. Reveal final result after the 6-second cosmic countdown
   setTimeout(() => {
     loading.style.display = "none";
     result.style.display = "block";
