@@ -1,65 +1,46 @@
-function startReading(){
+const API_URL = "https://script.google.com/macros/s/AKfycby7ztL5a4Nd5_KnU1ZbyoKznKbNWcYwwpFqlau38Y1amWpkamyvA2gm3b1Rl7IGzf-w/exec";
 
-document.getElementById("loading").style.display="block";
+async function startReading() {
 
-document.getElementById("typing").innerHTML="Reading cosmic energy...";
+    const name = document.getElementById("name").value || "Anonymous";
+    const dob = document.getElementById("dob").value;
+    const time = document.getElementById("time").value;
+    const place = document.getElementById("place").value;
 
-setTimeout(()=>{
+    if (!dob || !time || !place) {
+        alert("Please fill all required fields.");
+        return;
+    }
 
-document.getElementById("typing").innerHTML="Finding your strengths...";
+    document.getElementById("loading").style.display = "block";
+    document.getElementById("result").innerHTML = "";
 
-},2000);
+    try {
+        await fetch(API_URL, {
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                dob: dob,
+                time: time,
+                place: place
+            })
+        });
 
-setTimeout(()=>{
+        setTimeout(() => {
+            document.getElementById("loading").style.display = "none";
 
-document.getElementById("typing").innerHTML="Preparing your inspiration...";
+            document.getElementById("result").innerHTML = `
+                <h2>Your Cosmic Reading</h2>
+                <p>The universe suggests that new opportunities are approaching.</p>
+                <p>Your determination and patience will guide your journey.</p>
+                <p><strong>Lucky Number:</strong> ${Math.floor(Math.random() * 9) + 1}</p>
+                <p><strong>Lucky Color:</strong> Blue</p>
+            `;
+        }, 2500);
 
-},4000);
-
-setTimeout(()=>{
-
-document.getElementById("loading").style.display="none";
-
-let result=document.getElementById("result");
-
-result.style.display="block";
-
-result.innerHTML=`
-
-<h2>✨ Cosmic Inspiration</h2>
-
-<p>
-
-Your determination, kindness and optimism are among your greatest strengths.
-
-Keep believing in yourself because wonderful opportunities can arise through consistent effort.
-
-</p>
-
-<p>
-
-💜 Lucky Color: Violet
-
-</p>
-
-<p>
-
-🔢 Lucky Number: 7
-
-</p>
-
-<p>
-
-🌟 Affirmation
-
-<br>
-
-"I welcome every new opportunity with confidence."
-
-</p>
-
-`;
-
-},6000);
-
+    } catch (error) {
+        document.getElementById("loading").style.display = "none";
+        alert("Unable to save data to Google Sheets.");
+        console.error(error);
+    }
 }
