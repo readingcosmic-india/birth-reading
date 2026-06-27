@@ -1,8 +1,16 @@
-// 1. PASTE YOUR BRAND NEW DEPLOYMENT URL HERE:
-const scriptURL = 'PASTE_YOUR_NEW_WEB_APP_URL_HERE';
+// 1. MAKE SURE TO PUT YOUR ACTUAL WEB APP URL HERE:
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwds3TGqNjhVoJrwah6IfbQujMcg4vEcb5nvnLzGGR8p4K8nMzAq7ScVIHWt7xI6WIA/exec';
 
 let messages = {};
-fetch('messages.json').then(r => r.json()).then(d => messages = d);
+
+// FIXED PATH: Points to the 'data' folder matching your GitHub structure
+fetch('./data/messages.json')
+  .then(r => {
+    if (!r.ok) throw new Error("Could not find messages.json in data folder");
+    return r.json();
+  })
+  .then(d => messages = d)
+  .catch(err => console.error("Error loading messages.json:", err));
 
 function getZodiacSign(dobString) {
   let x = new Date(dobString), m = x.getMonth() + 1, day = x.getDate();
@@ -51,17 +59,20 @@ function startReading() {
   let arr = messages[s] || ['Keep believing in yourself.'];
   let msg = arr[Math.floor(Math.random() * arr.length)];
 
-  // UPDATED FETCH WITH CORS BYPASS
+  // STABLE GOOGLE SHEETS FORM DATA FORMAT (Prevents CORS Blocks entirely)
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('dob', dob);
+  formData.append('time', time);
+  formData.append('place', place);
+
   fetch(scriptURL, {
     method: 'POST',
-    mode: 'no-cors', // Tells GitHub Pages to shoot the data out without blocking it
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ name, dob, time, place })
+    mode: 'no-cors', 
+    body: formData
   })
-  .then(() => console.log("Data dispatched successfully."))
-  .catch(err => console.error("Network error:", err));
+  .then(() => console.log("Data successfully dispatched to Google Sheets."))
+  .catch(err => console.error("Google Sheets Network error:", err));
 
   setTimeout(() => {
     loading.style.display = "none";
