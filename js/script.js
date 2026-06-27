@@ -1,9 +1,9 @@
-// 1. MAKE SURE TO PUT YOUR ACTUAL WEB APP URL HERE:
-const scriptURL = 'https://script.google.com/macros/s/AKfycby4QzcWQR8MLT20rI0VxW1JWddO29ua3DZrqOhG_JcAHpoW2rwQlhqAioqXL_2Ubqdk/exec';
+// Keep your actual Google Web App URL intact here:
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwds3TGqNjhVoJrwah6IfbQujMcg4vEcb5nvnLzGGR8p4K8nMzAq7ScVIHWt7xI6WIA/exec';
 
 let messages = {};
 
-// FIXED PATH: Points to the 'data' folder matching your GitHub structure
+// Load the updated motivational messages JSON file
 fetch('./data/messages.json')
   .then(r => {
     if (!r.ok) throw new Error("Could not find messages.json in data folder");
@@ -12,6 +12,7 @@ fetch('./data/messages.json')
   .then(d => messages = d)
   .catch(err => console.error("Error loading messages.json:", err));
 
+// Zodiac calculation function
 function getZodiacSign(dobString) {
   let x = new Date(dobString), m = x.getMonth() + 1, day = x.getDate();
   if (isNaN(x.getTime())) return ''; 
@@ -28,6 +29,28 @@ function getZodiacSign(dobString) {
   if ((m == 1 && day >= 20) || (m == 2 && day <= 18)) return 'aquarius';
   return 'pisces';
 }
+
+// NEW: Numerology engine to calculate a highly personalized Lucky Number from DOB
+function calculateLuckyNumber(dobString) {
+  // Extract only the numbers from the date string (e.g., "1995-12-25" -> "19951225")
+  let digits = dobString.replace(/[^0-9]/g, '');
+  let sum = 0;
+  
+  // Sum up all the single digits
+  for (let i = 0; i < digits.length; i++) {
+    sum += parseInt(digits[i]);
+  }
+  
+  // Keep reducing down to a single digit (1-9) if it's greater than 9
+  while (sum > 9) {
+    sum = sum.toString().split('').reduce((acc, curr) => acc + parseInt(curr), 0);
+  }
+  
+  return sum;
+}
+
+// NEW: Dynamic color array picked based on their lucky number math
+const cosmicColors = ["Mystic Violet", "Celestial Blue", "Solar Gold", "Emerald Green", "Cosmic Crimson", "Lunar Silver", "Deep Magenta", "Starlight Indigo", "Aquamarine"];
 
 function startReading() {
   const nameEl = document.getElementById('name');
@@ -52,14 +75,25 @@ function startReading() {
   loading.style.display = "block";
   typing.innerHTML = "Reading cosmic energy...";
 
-  setTimeout(() => { typing.innerHTML = "Finding your strengths..."; }, 2000);
-  setTimeout(() => { typing.innerHTML = "Preparing your inspiration..."; }, 4000);
+  setTimeout(() => { typing.innerHTML = "Finding your strengths... 🌟"; }, 2000);
+  setTimeout(() => { typing.innerHTML = "Preparing your unique inspiration... 🔮"; }, 4000);
 
   let s = getZodiacSign(dob);
-  let arr = messages[s] || ['Keep believing in yourself.'];
-  let msg = arr[Math.floor(Math.random() * arr.length)];
+  
+  // Fetch dynamic, longer messages and targeted affirmations from our data structure
+  let signData = messages[s] || { 
+    readings: ["Keep believing in yourself. Your path is uniquely yours."], 
+    affirmations: ["I welcome every new opportunity with confidence."] 
+  };
+  
+  let msg = signData.readings[Math.floor(Math.random() * signData.readings.length)];
+  let affirmation = signData.affirmations[Math.floor(Math.random() * signData.affirmations.length)];
+  
+  // Dynamic Calculations based on their unique input
+  let luckyNum = calculateLuckyNumber(dob);
+  let luckyColor = cosmicColors[luckyNum - 1] || "Deep Violet";
 
-  // STABLE GOOGLE SHEETS FORM DATA FORMAT (Prevents CORS Blocks entirely)
+  // Dispatch data to Google Sheets cleanly[cite: 2]
   const formData = new FormData();
   formData.append('name', name);
   formData.append('dob', dob);
@@ -74,16 +108,20 @@ function startReading() {
   .then(() => console.log("Data successfully dispatched to Google Sheets."))
   .catch(err => console.error("Google Sheets Network error:", err));
 
+  // Render the fresh personalized results layout[cite: 2]
   setTimeout(() => {
     loading.style.display = "none";
     result.style.display = "block";
     result.innerHTML = `
       <h2>✨ Cosmic Inspiration (${s.toUpperCase()})</h2>
-      <p>Hello <b>${name || 'Friend'}</b></p>
-      <p>${msg}</p>
-      <p>💜 Lucky Color: Violet</p>
-      <p>🔢 Lucky Number: 7</p>
-      <p>🌟 Affirmation<br>"I welcome every new opportunity with confidence."</p>
+      <p>Welcome, <b>${name || 'Seeker of Stars'}</b>.</p>
+      <p style="line-height: 1.6; font-size: 1.05rem;">${msg}</p>
+      <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.2); margin: 15px 0;">
+      <p>💜 <b>Lucky Cosmic Color:</b> ${luckyColor}</p>
+      <p>🔢 <b>Personal Numerology Number:</b> ${luckyNum}</p>
+      <p style="background: rgba(255,255,255,0.1); padding: 12px; border-radius: 8px; font-style: italic;">
+        🌟 <b>Daily Affirmation:</b><br>"${affirmation}"
+      </p>
     `;
   }, 6000);
 }
