@@ -18,6 +18,7 @@ function getZodiac(month, day) {
 const API_URL = "https://script.google.com/macros/s/AKfycbwX57x4KHz4jQzGU_LKrwF5dQiiAHm78Yo4IZc_oDPJu1lcG5zizS7QuWhDSObmgfeN/exec";
 
 async function startReading() {
+    console.log("STEP 1");
 
     const name = document.getElementById("name").value || "Anonymous";
     const dob = document.getElementById("dob").value;
