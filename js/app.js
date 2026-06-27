@@ -31,6 +31,7 @@ async function startReading() {
     }
 
     document.getElementById("loading").style.display = "block";
+    console.log("STEP 2");
     document.getElementById("result").innerHTML = "";
 
     const birthDate = new Date(dob);
@@ -39,7 +40,7 @@ async function startReading() {
         birthDate.getMonth() + 1,
         birthDate.getDate()
     );
-
+    console.log("STEP 3", zodiac);
     const zodiacNames = {
         aries: "♈ Aries",
         taurus: "♉ Taurus",
