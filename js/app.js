@@ -19,7 +19,10 @@ const API_URL = "https://script.google.com/macros/s/AKfycbwX57x4KHz4jQzGU_LKrwF5
 
 async function startReading() {
     console.log("STEP 1");
-
+console.log("Name:", name);
+console.log("DOB:", dob);
+console.log("Time:", time);
+console.log("Place:", place);
     const name = document.getElementById("name").value || "Anonymous";
     const dob = document.getElementById("dob").value;
     const time = document.getElementById("time").value;
