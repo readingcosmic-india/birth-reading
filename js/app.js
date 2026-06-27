@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycby7ztL5a4Nd5_KnU1ZbyoKznKbNWcYwwpFqlau38Y1amWpkamyvA2gm3b1Rl7IGzf-w/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwX57x4KHz4jQzGU_LKrwF5dQiiAHm78Yo4IZc_oDPJu1lcG5zizS7QuWhDSObmgfeN/exec";
 
 async function startReading() {
 
