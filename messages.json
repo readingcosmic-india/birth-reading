@@ -1,73 +1,61 @@
 {
-  "aries": [
-    "Your courage will open new doors this month.",
-    "Leadership opportunities are approaching.",
-    "Trust your instincts and move forward confidently."
-  ],
+"aries":[
+"You possess remarkable courage. Great opportunities are waiting for you.",
+"Your determination will help you achieve your dreams."
+],
 
-  "taurus": [
-    "Patience will bring rewards in unexpected ways.",
-    "Your steady efforts are creating long-term success.",
-    "Financial opportunities may appear soon."
-  ],
+"taurus":[
+"Your patience is your greatest strength.",
+"Success grows steadily through your consistent efforts."
+],
 
-  "gemini": [
-    "Your communication skills will attract new opportunities.",
-    "Learning something new will benefit your future.",
-    "Interesting connections are on the horizon."
-  ],
+"gemini":[
+"Your curiosity opens new doors.",
+"Your communication inspires those around you."
+],
 
-  "cancer": [
-    "Your kindness creates lasting relationships.",
-    "Family and close friends will play an important role.",
-    "Your emotional intelligence is your strength."
-  ],
+"cancer":[
+"Your kindness creates lasting connections.",
+"Your compassion is one of your greatest gifts."
+],
 
-  "leo": [
-    "Your confidence inspires those around you.",
-    "Recognition for your efforts is coming soon.",
-    "Your natural leadership will shine brightly."
-  ],
+"leo":[
+"Your confidence helps you shine in every challenge.",
+"Your leadership inspires people around you."
+],
 
-  "virgo": [
-    "Attention to detail will lead to success.",
-    "Small improvements will create major results.",
-    "Organization and planning are your superpowers."
-  ],
+"virgo":[
+"Your attention to detail will lead to success.",
+"Small consistent steps create extraordinary results."
+],
 
-  "libra": [
-    "Balance and harmony will guide your decisions.",
-    "A meaningful relationship may deepen soon.",
-    "Your diplomacy will solve difficult situations."
-  ],
+"libra":[
+"You naturally bring balance wherever you go.",
+"Your positive energy attracts meaningful relationships."
+],
 
-  "scorpio": [
-    "Transformation will lead to growth.",
-    "Your determination will overcome obstacles.",
-    "Powerful opportunities are approaching."
-  ],
+"scorpio":[
+"Your inner strength helps you overcome obstacles.",
+"Transformation leads you toward new opportunities."
+],
 
-  "sagittarius": [
-    "Adventure and learning await you.",
-    "Travel or exploration may bring exciting experiences.",
-    "Your optimism attracts success."
-  ],
+"sagittarius":[
+"Adventure and learning will bring exciting opportunities.",
+"Your optimism is your superpower."
+],
 
-  "capricorn": [
-    "Discipline will create long-term achievements.",
-    "Hard work is about to pay off.",
-    "Your persistence inspires others."
-  ],
+"capricorn":[
+"Your discipline creates lasting achievements.",
+"Hard work will continue to reward you."
+],
 
-  "aquarius": [
-    "Innovation will open unexpected doors.",
-    "Creative ideas deserve your attention.",
-    "Your originality is your greatest strength."
-  ],
+"aquarius":[
+"Your creativity makes you unique.",
+"Your innovative thinking will open unexpected doors."
+],
 
-  "pisces": [
-    "Your imagination will guide you toward opportunities.",
-    "Trust your intuition this month.",
-    "Creativity and compassion will bring success."
-  ]
+"pisces":[
+"Your imagination and empathy are powerful strengths.",
+"Your dreams are worth pursuing with confidence."
+]
 }
